@@ -1,0 +1,27 @@
+{
+    "time_exp_start": "04-10-16-49",
+    "train_dir": "data/train",
+    "val_dir": "data/val",
+    "epochs": 5,
+    "save_station": 1,
+    "num_workers": 4,
+    "is_mps": false,
+    "is_cuda": false,
+    "batch_size": 4,
+    "test_batch_size": 4,
+    "lr": 0.001,
+    "num_classes": 2,
+    "data_mean": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "data_std": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "model": "ResNet18",
+    "warmup_epoch": 1,
+    "directory": "dictionary/ResNet18/Hi04-10-16-49/"
+}
