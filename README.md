@@ -3,3 +3,16 @@
 ```python
 
 ```
+## 在终端启动训练
+
+
+
+## 更改参数设置并启动训练（有启动训练的命令即可）
+更改为以下参数
+![image](https://user-images.githubusercontent.com/128216499/233016745-2f3f9ccd-efb1-4961-8129-41a55b9d2bbf.png)
+
+输入以下命令
+```python
+python train.py --epochs 10 --save_station 1 --model ResNet34
+```
+![image](https://user-images.githubusercontent.com/128216499/233017491-d8fe3e05-82b5-49e8-9b85-5e60f8020059.png)
