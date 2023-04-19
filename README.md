@@ -10,6 +10,8 @@ python train.py
 ```
 训练结果
 
+![image](https://user-images.githubusercontent.com/128216499/233022052-cf8513d9-8dee-404e-9d1a-4715d982a9c3.png)
+
 
 ## 更改参数设置并启动训练（有启动训练的命令即可）
 更改为以下参数
