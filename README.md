@@ -24,4 +24,4 @@ python train.py --epochs 10 --save_station 1 --model ResNet34
 ```
 参数更改后的训练结果
 
-![image](https://user-images.githubusercontent.com/128216499/233017491-d8fe3e05-82b5-49e8-9b85-5e60f8020059.png)
+![image](https://user-images.githubusercontent.com/128216499/233022951-2c348367-d878-4f29-9ae3-cf4de779ce82.png)
