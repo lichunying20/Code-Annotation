@@ -104,14 +104,13 @@ class Worker:
         ...
 
     def train(...):...
-
     def val(...):...
-
 
 if __name__ == '__main__':
     # 初始化
-    ...
-    worker = Worker(args=args)#在模型训练中，worker = Worker(args=args)的作用是创建一个Worker对象，以便在本地或远程计算机上进行多进程训练。
+    ...   
+    worker = Worker(args=args)
+    # 创建了一个名为worker的Worker对象，并将args作为参数传递给它的构造函数，以便在本地或远程计算机上进行多进程训练。
     # Worker对象是 PyTorch 的 DistributedDataParallel 组件的一部分，它利用多进程并行计算来加速模型训练过程，并帮助在多个GPU、多个计算机上训练模型。
 
     # 训练与验证
