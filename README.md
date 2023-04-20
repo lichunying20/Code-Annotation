@@ -90,12 +90,15 @@ class Worker:
 
         # 优化器
         self.optimizer = optim.AdamW(
-            self.model.parameters(),#self.model.parameters() 是一个函数，它返回可训练参数的生成器。在模型训练中，它通常用于传递给优化器(optimizer)的参数，以便调整模型参数以最小化损失函数(loss function)。
-            lr=args.lr#lr=args.lr 是将命令行参数中传入的学习率赋值给 lr 变量，其中 args.lr 是命令行参数中指定的学习率。这个代码会在模型训练时使用指定的学习率，以控制模型参数的调整速度。
+            self.model.parameters(),
+            # 它返回可训练参数的生成器。在模型训练中，它通常用于传递给优化器(optimizer)的参数，以便调整模型参数以最小化损失函数(loss function)。
+            lr=args.lr
+            # lr=args.lr 是将命令行参数中传入的学习率赋值给 lr 变量，其中 args.lr 是命令行参数中指定的学习率。这个代码会在模型训练时使用指定的学习率，以控制模型参数的调整速度。
         )
 
         # 损失函数
-        self.loss_function = nn.CrossEntropyLoss()#定义模型训练过程中的损失函数，即交叉熵损失函数。它的作用是计算模型预测结果与目标值之间的差异，并根据这个差异来反向传播更新模型参数。交叉熵损失函数适用于多分类任务，因为它能够将模型预测的概率分布与真实概率分布之间的差异最小化。
+        self.loss_function = nn.CrossEntropyLoss()
+        # 定义模型训练过程中的损失函数，即交叉熵损失函数，用于计算模型预测输出和真实标签之间的差异。
 
         # warm up 学习率调整部分
         ...
