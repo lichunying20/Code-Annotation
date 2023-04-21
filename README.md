@@ -136,7 +136,7 @@ python train.py
 
 ![image](https://user-images.githubusercontent.com/128216499/233016745-2f3f9ccd-efb1-4961-8129-41a55b9d2bbf.png)
 
-输入以下命令
+输入以下命令（参数更改后）
 ```python
 python train.py --epochs 10 --save_station 1 --model ResNet34
 ```
