@@ -49,7 +49,8 @@ class Worker:
         # 将模型和数据移到GPU或CPU上进行训练和推理。如果args.is_cuda为True，则将设备设置为cuda:0，否则设置为cpu。
         kwargs = {
             'num_workers': args.num_workers,
-            # 这个参数用于在数据加载期间使用的工作程序数量。可以有效地加速数据加载，并提高模型训练的效率。但是，进程数量过高可能会导致系统资源占用过多，而影响其他进程的运行。
+            # 这个参数用于在数据加载期间使用的工作程序数量。可以有效地加速数据加载，并提高模型训练的效率。
+            # 但是，进程数量过高可能会导致系统资源占用过多，而影响其他进程的运行。
             # 如果在训练期间使用GPU加速，则需要将此变量设置为较高值以确保数据加载不成为主要瓶颈。如果在CPU上训练，则最好将其设置为使用 CPU 核心的数量。
             'pin_memory': True,
         } if args.is_cuda else {}
@@ -62,7 +63,8 @@ class Worker:
                 transforms.RandomResizedCrop(256),
                 # 对图片进行随机大小裁剪，并将其调整为256x256的大小。
                 transforms.ToTensor()
-                # 是一个数据预处理操作，用于将PIL图像或numpy.ndarray数组转换为PyTorch张量（Tensor）格式。在转换过程中，图像的像素值将被缩放到0到1之间，并且通道顺序将被调整为PyTorch所需的顺序（即将通道维度从最后一维移到第二维）。
+                # 是一个数据预处理操作，用于将PIL图像或numpy.ndarray数组转换为PyTorch张量（Tensor）格式。
+                # 在转换过程中，图像的像素值将被缩放到0到1之间，并且通道顺序将被调整为PyTorch所需的顺序（即将通道维度从最后一维移到第二维）。
                 # transforms.Normalize(opt.data_mean, opt.data_std)
             ])
         )
@@ -71,7 +73,8 @@ class Worker:
         )
         self.train_loader = DataLoader(
             dataset=train_dataset,
-            # 将定义数据集用于模型训练。train_dataset是一个变量包含了我们的训练数据。在这里，我们使用dataset=train_dataset来指定我们要使用的数据集。这个操作将数据集传递给模型训练器，这样它就可以使用数据来训练我们的模型。
+            # 将定义数据集用于模型训练。train_dataset是一个变量包含了我们的训练数据。在这里，我们使用dataset=train_dataset来指定我们要使用的数据集。
+            # 这个操作将数据集传递给模型训练器，这样它就可以使用数据来训练我们的模型。
             batch_size=args.batch_size,
             # batch_size是指每一次模型训练时，输入的数据分成的小块的大小。这个值决定了一次训练中跑多少个样本。
             shuffle=True,
@@ -93,7 +96,8 @@ class Worker:
             self.model.parameters(),
             # 它返回可训练参数的生成器。在模型训练中，它通常用于传递给优化器(optimizer)的参数，以便调整模型参数以最小化损失函数(loss function)。
             lr=args.lr
-            # lr=args.lr 是将命令行参数中传入的学习率赋值给 lr 变量，其中 args.lr 是命令行参数中指定的学习率。这个代码会在模型训练时使用指定的学习率，以控制模型参数的调整速度。
+            # lr=args.lr 是将命令行参数中传入的学习率赋值给 lr 变量，其中 args.lr 是命令行参数中指定的学习率。
+            # 这个代码会在模型训练时使用指定的学习率，以控制模型参数的调整速度。
         )
 
         # 损失函数
