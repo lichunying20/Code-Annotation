@@ -144,4 +144,4 @@ python train.py --epochs 10 --save_station 1 --model ResNet34
 
 
 ## 个人总结
- 1、代码的注释不够简洁明了。
+ 1、了解了启动一个Pytorch训练工程之前，除了数据集之外还需要进行的初始化以及在Pytorch 中怎么做好优化的初试准备。
