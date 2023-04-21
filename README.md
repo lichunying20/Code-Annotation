@@ -49,8 +49,7 @@ class Worker:
         # 将模型和数据移到GPU或CPU上进行训练和推理。如果args.is_cuda为True，则将设备设置为cuda:0，否则设置为cpu。
         kwargs = {
             'num_workers': args.num_workers,
-            # 这个参数用于在数据加载期间使用的工作程序数量。可以有效地加速数据加载，并提高模型训练的效率。
-            # 但是，进程数量过高可能会导致系统资源占用过多，而影响其他进程的运行。
+            # 这个参数表示工作程序数量。但要注意进程数量过高可能会导致系统资源占用过多，而影响其他进程的运行。
             # 如果在训练期间使用GPU加速，则需要将此变量设置为较高值以确保数据加载不成为主要瓶颈。如果在CPU上训练，则最好将其设置为使用 CPU 核心的数量。
             'pin_memory': True,
         } if args.is_cuda else {}
@@ -73,8 +72,7 @@ class Worker:
         )
         self.train_loader = DataLoader(
             dataset=train_dataset,
-            # 将定义数据集用于模型训练。train_dataset是一个变量包含了我们的训练数据。在这里，我们使用dataset=train_dataset来指定我们要使用的数据集。
-            # 这个操作将数据集传递给模型训练器，这样它就可以使用数据来训练我们的模型。
+            # 将定义数据集用于模型训练，这个操作将数据集传递给模型训练器，这样它就可以使用数据来训练我们的模型。
             batch_size=args.batch_size,
             # batch_size是指每一次模型训练时，输入的数据分成的小块的大小。这个值决定了一次训练中跑多少个样本。
             shuffle=True,
@@ -143,3 +141,7 @@ python train.py --epochs 10 --save_station 1 --model ResNet34
 参数更改后的训练结果
 
 ![image](https://user-images.githubusercontent.com/128216499/233022951-2c348367-d878-4f29-9ae3-cf4de779ce82.png)
+
+
+## 个人总结
+ 1、代码的注释不够简洁明了。
